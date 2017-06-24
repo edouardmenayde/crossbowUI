@@ -1,18 +1,4 @@
-# Preact Boilerplate / Starter Kit
-
-[![Build Status](https://travis-ci.org/developit/preact-boilerplate.svg?branch=master)](https://travis-ci.org/developit/preact-boilerplate)
-[![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/developit/preact)
-
-> :guitar: Ready-to-rock [Preact] starter project, powered by [webpack].
->
-> :rocket: If you're starting a new project using [Preact], you've come to the right place.
-Below is a step-by-step guide that takes you straight from downloading this boilerplate to production.
->
-> **[:boom: View Demo :boom:](https://preact-boilerplate.surge.sh)**
-
-
----
-
+# UI for crossbow
 
 # Quick-Start Guide
 
@@ -29,21 +15,11 @@ Below is a step-by-step guide that takes you straight from downloading this boil
 **1. Clone this repo:**
 
 ```sh
-git clone --depth 1 https://github.com/developit/preact-boilerplate.git my-app
-cd my-app
+git clone git@github.com:edouardmenayde/crossbowUI.git
+cd crossbowUI
 ```
 
-
-**2. Make it your own:**
-
-```sh
-rm -rf .git && git init && npm init
-```
-
-> :information_source: This re-initializes the repo and sets up your NPM project.
-
-
-**3. Install the dependencies:**
+**2. Install the dependencies:**
 
 ```sh
 npm install
@@ -52,9 +28,7 @@ npm install
 > You're done installing! Now let's get started developing.
 
 
-
 ## Development Workflow
-
 
 **4. Start a live-reload development server:**
 

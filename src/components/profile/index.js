@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import {h, Component} from 'preact';
 import style from './style.less';
 
 export default class Profile extends Component {
@@ -9,7 +9,7 @@ export default class Profile extends Component {
 	// update the current time
 	updateTime = () => {
 		let time = new Date().toLocaleString();
-		this.setState({ time });
+		this.setState({time});
 	};
 
 	// gets called when this route is navigated to
@@ -19,7 +19,7 @@ export default class Profile extends Component {
 		this.updateTime();
 
 		// every time we get remounted, increment a counter:
-		this.setState({ count: this.state.count+1 });
+		this.setState({count: this.state.count + 1});
 	}
 
 	// gets called just before navigating away from the route
@@ -28,7 +28,7 @@ export default class Profile extends Component {
 	}
 
 	// Note: `user` comes from the URL, courtesy of our router
-	render({ user }, { time, count }) {
+	render({user}, {time, count}) {
 		return (
 			<div class={style.profile}>
 				<h1>Profile: {user}</h1>

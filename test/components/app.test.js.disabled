@@ -1,0 +1,25 @@
+// import {h} from 'preact';
+// import render from 'preact-render-to-string';
+// import {route} from 'preact-router';
+// import {expect} from 'chai';
+
+// import App from '../../src/components/app';
+
+// describe('App', () => {
+// 	describe('routing', () => {
+		// it('should render the homepage', () => {
+		// 	let scratch = `<div>${render(<App />)}</div>`;
+    //
+		// 	expect(scratch.innerHTML).to.contain('Home');
+		// });
+    //
+		// it('should render /profile', async () => {
+		// 	let scratch = `<div>${render(<App />)}</div>`;
+		// 	route('/profile');
+    //
+		// 	await sleep(1);
+    //
+		// 	expect(scratch.innerHTML).to.contain('Profile: me');
+		// });
+// 	});
+// });
