@@ -1,18 +1,35 @@
-import { h, Component } from 'preact';
-import { Link } from 'preact-router';
+import {h, Component} from 'preact';
+import {getToken} from '../../lib/auth';
+import {Link} from 'preact-router';
 import style from './style.less';
 
 export default class Header extends Component {
-	render() {
+
+	renderLoggedIn() {
 		return (
 			<header class={style.header}>
-				<h1>Preact App</h1>
+				<Link href="/dashboard"><h1>Crossbow</h1></Link>
+			</header>
+		);
+	}
+
+	renderLoggedOut() {
+		return (
+			<header class={style.header}>
+				<Link href="/"><h1>Crossbow</h1></Link>
 				<nav>
-					<Link href="/">Home</Link>
-					<Link href="/profile">Me</Link>
-					<Link href="/profile/john">John</Link>
+					<Link href="/signin">Sign in</Link>
+					<Link href="/signup">Sign up</Link>
 				</nav>
 			</header>
 		);
+	}
+
+	render() {
+		if (getToken()) {
+			return this.renderLoggedIn();
+		}
+
+		return this.renderLoggedOut();
 	}
 }
