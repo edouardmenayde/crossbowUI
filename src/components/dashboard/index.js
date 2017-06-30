@@ -1,10 +1,11 @@
 import {h, Component} from 'preact';
+import Services from './services';
 
 export default class Dashboard extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Dashboard</h2>
+				<Services/>
 			</div>
 		);
 	}
