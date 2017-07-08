@@ -1,0 +1,11 @@
+query servicesForUser {
+  servicesForUser {
+	services {
+	  id,
+	  name,
+	  links {
+		id
+	  }
+	}
+  }
+}

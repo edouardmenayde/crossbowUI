@@ -1,12 +1,11 @@
-import {h, Component} from 'preact';
+import {h} from 'preact';
 import Services from './services';
 
-export default class Dashboard extends Component {
-	render() {
-		return (
-			<div>
-				<Services/>
-			</div>
-		);
-	}
-}
+
+export default () => {
+	return (
+		<div>
+			<Services/>
+		</div>
+	);
+};

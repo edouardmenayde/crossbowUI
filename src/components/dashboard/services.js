@@ -1,10 +1,8 @@
 import {h} from 'preact';
-import {
-	gql,
-	graphql
-} from 'react-apollo';
+import {graphql} from 'react-apollo';
 import Service from './service';
 import style from './style.less';
+import SERVICES_FOR_USER_QUERY from '../../graphql/queries/services-for-user.graphql';
 
 const services = ({data: {loading, error, servicesForUser}}) => {
 	if (loading) {
@@ -17,21 +15,13 @@ const services = ({data: {loading, error, servicesForUser}}) => {
 
 	let {services} = servicesForUser;
 
+	if (!services) {
+		return;
+	}
 
 	return <div class={style.services}>
-		{services.map(service => <Service id={service.id} name={service.name}/>)}
+		{services.map(service => <Service data={service}/>)}
 	</div>;
 };
 
-const servicesForUserQuery = gql`
-	query servicesForUser {
-		servicesForUser {
-			services {
-				id,
-				name
-			}
-		}
-	}
-`;
-
-export default graphql(servicesForUserQuery)(services);
+export default graphql(SERVICES_FOR_USER_QUERY)(services);

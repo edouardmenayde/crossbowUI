@@ -1,16 +1,15 @@
 import {h} from 'preact';
 import style from './style.less';
-import Button from '../button';
+import {LinkButton, LinkedButton} from '../buttons';
 
-const service = ({name}) => {
+export default ({data, data: {name, links}}) => {
 	return <div class={style.service}>
 		<header class={style.serviceHeader}>
 			<h2>{name}</h2>
-			<Button name="Link"/>
+			{!links.length && <LinkButton data={data}/>}
+			{links.length > 0 && <LinkedButton data={data} />}
 		</header>
 		<hr/>
 		<p class={style.serviceDescription}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 	</div>;
 };
-
-export default service;
