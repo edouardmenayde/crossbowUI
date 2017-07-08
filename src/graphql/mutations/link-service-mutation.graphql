@@ -1,0 +1,16 @@
+mutation linkService($input: LinkServiceInput!) {
+  linkService(input: $input) {
+	serviceLink {
+	  id,
+	  createdAt,
+	  updatedAt,
+	  type,
+	  accessToken,
+	  refreshToken,
+	  expiresIn,
+	  service {
+		id
+	  }
+	}
+  }
+}

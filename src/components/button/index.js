@@ -1,12 +1,11 @@
 import {h} from 'preact';
-import MdAdd from 'react-icons/lib/md/add';
 import style from './style.less';
 
-const Button = ({name}) => {
+const Button = ({name, children}) => {
 	return <a class={style.button} href="#" role="button">
 		<span>{name}</span>
 		<div class={style.icon}>
-			<MdAdd />
+			{children}
 		</div>
 	</a>;
 };

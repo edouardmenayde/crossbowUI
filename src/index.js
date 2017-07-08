@@ -23,7 +23,9 @@ networkInterface.use([{
 
 		let token = getToken();
 
-		req.options.headers['authorization'] = token ? token : null;
+		if (token) {
+			req.options.headers.authorization = `Bearer ${token}`;
+		}
 
 		next();
 	}

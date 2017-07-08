@@ -38,8 +38,13 @@ module.exports = {
 	module : {
 		rules: [
 			{
+				test   : /\.(graphql|gql)$/,
+				exclude: /node_modules/,
+				loader : 'graphql-tag/loader'
+			},
+			{
 				test   : /\.jsx?$/,
-				exclude: path.resolve(__dirname, 'src'),
+				exclude: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules')],
 				enforce: 'pre',
 				use    : 'source-map-loader'
 			},

@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import chai from 'chai';
 import assertJsx, {options} from 'preact-jsx-chai';
+import localStorage from './__mocks__/local-storage';
 
 // when checking VDOM assertions, don't compare functions, just nodes and attributes:
 options.functions = false;
@@ -9,3 +10,5 @@ options.functions = false;
 chai.use(assertJsx);
 
 global.sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+global.localStorage = localStorage;
