@@ -17,8 +17,8 @@ class SigninForm extends Component {
 			variables: {
 				input: this.state
 			}
-		}).then(data => {
-			saveToken(data.data.signin.token);
+		}).then(({data: {signin: {token}}}) => {
+			saveToken(token);
 
 			route('/dashboard');
 		}).catch(error => {
