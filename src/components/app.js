@@ -3,11 +3,11 @@ import {Router} from 'preact-router';
 
 import Header from './header';
 import Home from './home';
-import Profile from './profile';
 import Signup from './signup';
 import Signin from './signin';
-import Dashboard from './dashboard';
 import Container from './container';
+import Dashboard from './dashboard';
+import ProjectCreateWizard from './dashboard/project-create-wizard';
 
 export default class App extends Component {
 	/** Gets fired when the route changes.
@@ -28,8 +28,7 @@ export default class App extends Component {
 						<Signup path="/signup"/>
 						<Signin path="/signin"/>
 						<Dashboard path="/dashboard"/>
-						<Profile path="/profile/" user="me"/>
-						<Profile path="/profile/:user"/>
+						<ProjectCreateWizard path="/dashboard/project/create"/>
 					</Router>
 				</Container>
 			</div>
