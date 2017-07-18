@@ -3,6 +3,7 @@ query servicesForUser {
 	services {
 	  id,
 	  name,
+	  tag,
 	  links {
 		id
 	  }

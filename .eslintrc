@@ -53,11 +53,11 @@
     "no-empty-pattern": 0,
     "no-cond-assign": 1,
     "semi": 2,
-    "camelcase": 0,
+    "camelcase": 2,
     "comma-style": 2,
     "comma-dangle": [
       2,
-      "never"
+      "always-multiline" // Permits adding a new line to an object without modifying the last
     ],
     "indent": [
       2,

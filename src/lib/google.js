@@ -58,7 +58,7 @@ export function authorize(config = {}) {
 		scope       : ['https://www.googleapis.com/auth/drive'],
 		responseType: 'code',
 		width       : 420,
-		height      : 470
+		height      : 470,
 	}, config);
 
 	const width  = config.width;

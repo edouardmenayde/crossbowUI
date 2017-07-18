@@ -17,7 +17,7 @@ export function authorize(config = {}) {
 		expiration  : 'never',
 		name        : 'Crossbow',
 		width       : 420,
-		height      : 470
+		height      : 470,
 	}, config);
 
 	const width  = config.width;

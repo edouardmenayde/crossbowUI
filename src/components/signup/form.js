@@ -2,7 +2,7 @@ import {h, Component} from 'preact';
 import style from './style.less';
 import {
 	gql,
-	graphql
+	graphql,
 } from 'react-apollo';
 
 class SignupForm extends Component {
@@ -13,8 +13,8 @@ class SignupForm extends Component {
 
 		mutate({
 			variables: {
-				input: this.state
-			}
+				input: this.state,
+			},
 		}).then(() => {
 			// Should act
 		}).catch(error => {
