@@ -5,14 +5,14 @@ import './style';
 import {
 	ApolloClient,
 	ApolloProvider,
-	createNetworkInterface
+	createNetworkInterface,
 } from 'react-apollo';
 import {getToken} from './lib/auth';
 
 let root;
 
 const networkInterface = createNetworkInterface({
-	uri: 'http://localhost:3000/graphql'
+	uri: 'http://localhost:3000/graphql',
 });
 
 networkInterface.use([{
@@ -28,11 +28,11 @@ networkInterface.use([{
 		}
 
 		next();
-	}
+	},
 }]);
 
 const client = new ApolloClient({
-	networkInterface
+	networkInterface,
 });
 
 function init() {

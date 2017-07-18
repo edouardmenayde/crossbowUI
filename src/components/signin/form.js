@@ -3,7 +3,7 @@ import style from './style.less';
 import {route} from 'preact-router';
 import {
 	gql,
-	graphql
+	graphql,
 } from 'react-apollo';
 import {saveToken} from '../../lib/auth';
 
@@ -15,8 +15,8 @@ class SigninForm extends Component {
 
 		mutate({
 			variables: {
-				input: this.state
-			}
+				input: this.state,
+			},
 		}).then(({data: {signin: {token}}}) => {
 			saveToken(token);
 

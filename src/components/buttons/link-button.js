@@ -18,16 +18,16 @@ export default class LinkButton extends Component {
 					.then(token => {
 						return mutate({
 							refetchQueries: [{
-								query: SERVICES_FOR_USER
+								query: SERVICES_FOR_USER,
 							}],
 							variables     : {
 								input: {
 									service    : id,
 									type       : 'oauth1',
 									accessToken: token,
-									expiresIn  : -1 // Never
-								}
-							}
+									expiresIn  : -1, // Never
+								},
+							},
 						});
 					})
 					.catch(error => {

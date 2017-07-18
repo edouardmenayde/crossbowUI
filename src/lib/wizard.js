@@ -36,7 +36,7 @@ export class Wizard extends Component {
 		}
 
 		this.setState({
-			currentStep: previousStep
+			currentStep: previousStep,
 		});
 	};
 

@@ -40,7 +40,7 @@ export default class ProjectNameInputStep extends Component {
 		this.setState({
 			timeout: setTimeout(() => {
 				this.input.focus();
-			}, 350)
+			}, 350),
 		});
 	}
 

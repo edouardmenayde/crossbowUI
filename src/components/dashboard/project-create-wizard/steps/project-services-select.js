@@ -15,7 +15,7 @@ export default class ProjectServicesSelect extends Component {
 		super(props);
 
 		this.setState({
-			selectedServices: []
+			selectedServices: [],
 		});
 	}
 
@@ -26,12 +26,12 @@ export default class ProjectServicesSelect extends Component {
 
 		if (isAlreadySelected) {
 			return this.setState({
-				selectedServices: [...selectedServices.filter(s => s !== service.id)]
+				selectedServices: [...selectedServices.filter(s => s !== service.id)],
 			});
 		}
 
 		this.setState({
-			selectedServices: [...selectedServices, service.id]
+			selectedServices: [...selectedServices, service.id],
 		});
 	};
 
@@ -45,17 +45,17 @@ export default class ProjectServicesSelect extends Component {
 			variables: {
 				input: {
 					name    : wizardState.project,
-					services: selectedServices
-				}
-			}
+					services: selectedServices,
+				},
+			},
 		})
 			.then(({data: {createProject}}) => {
 				return createTeamInvite({
 					variables: {
 						input: {
-							team: createProject.team.id
-						}
-					}
+							team: createProject.team.id,
+						},
+					},
 				})
 					.then(({data: {createTeamInvite: {teamInvite}}}) => {
 						this.props.advance({

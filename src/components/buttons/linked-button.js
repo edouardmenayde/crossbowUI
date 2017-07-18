@@ -12,13 +12,13 @@ export default class UnlinkButton extends Component {
 
 		return mutate({
 			refetchQueries: [{
-				query: SERVICES_FOR_USER
+				query: SERVICES_FOR_USER,
 			}],
 			variables     : {
 				input: {
-					serviceLink: links[0].id
-				}
-			}
+					serviceLink: links[0].id,
+				},
+			},
 		}).catch(error => {
 			console.error(error);
 		});
