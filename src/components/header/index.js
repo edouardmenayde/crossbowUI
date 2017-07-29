@@ -11,10 +11,10 @@ export default class Header extends Component {
             <div id="accountPanel">
                 <div className="container">
                     <div className="branding">Crossbow</div>
-                    <div className="divider"></div>
-                    <div className="profilePicture"></div>
+                    <div className="divider"/>
+                    <div className="profilePicture"/>
                     <div className="profileName">John Doe</div>
-                    <div className="divider"></div>
+                    <div className="divider"/>
                     <div className="management">
                         <div className="account">🙄 Account</div>
                         <div className="preferences">⚙️ Preferences</div>

@@ -1,7 +1,6 @@
 import {h} from 'preact';
 import Badge from '../badge';
 import Project from '../project';
-import style from './style.less';
 
 export default () => {
     return (
