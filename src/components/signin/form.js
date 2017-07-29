@@ -1,21 +1,34 @@
 import {h, Component} from 'preact';
 import style from './style.less';
+import {graphql} from 'react-apollo';
+import SIGNIN_MUTATION from '../../graphql/mutations/signin-mutation.graphql';
 import {route} from 'preact-router';
-import {
-	gql,
-	graphql,
-} from 'react-apollo';
 import {saveToken} from '../../lib/auth';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 
-class SigninForm extends Component {
+@graphql(SIGNIN_MUTATION)
+export default class SigninForm extends Component {
 	submit = event => {
 		event.preventDefault();
 
 		let {mutate} = this.props;
 
 		mutate({
-			variables: {
+			variables    : {
 				input: this.state,
+			},
+			updateQueries: {
+				me: (previousData, {mutationResult: {data: {signin: {user}}}}) => {
+					return {
+						...previousData,
+						me: {
+							...previousData.me,
+							user,
+						},
+					};
+				},
 			},
 		}).then(({data: {signin: {token}}}) => {
 			saveToken(token);
@@ -33,44 +46,21 @@ class SigninForm extends Component {
 	render({}, {username, password}) {
 		return (
 			<div class={style.signin}>
-				<form class="form" onSubmit={this.submit}>
-					<fieldset>
-						<legend>Signin</legend>
+				<form onSubmit={this.submit}>
+					<Paper class={style.signinForm}>
+						<h1 class={style.title}>Signin</h1>
 
-						<div class="form-group">
-							<label for="username">Username</label>
-							<input name="username" value={username} type="text" placeholder="John Doe." required autofocus
-										 onInput={this.setUsername}/>
-						</div>
+						<TextField style={{width: '100%'}} name="username" hintText="John Doe." onChange={this.setUsername}
+											 value={username}/>
 
-						<div class="form-group">
-							<label for="password">Password</label>
-							<input name="password" value={password} type="password" placeholder="Strong password" required
-										 onInput={this.setPassword}/>
-						</div>
+						<TextField style={{width: '100%'}} name="password" hintText="Strong password" onChange={this.setPassword}
+											 value={password}
+											 type="password"/>
 
-						<div class="form-group">
-							<input name="submit" type="submit"/>
-						</div>
-					</fieldset>
+						<RaisedButton style={{'margin-top': '1rem'}} label="Signin" type="submit" primary={true}/>
+					</Paper>
 				</form>
 			</div>
 		);
 	}
 }
-
-const signinMutation = gql`
-	mutation signin($input: SigninInput!) {
-		signin(input: $input) {
-			user {
-				id,
-				username
-			},
-			token
-		}
-	}
-`;
-
-const SigninFormMutation = graphql(signinMutation)(SigninForm);
-
-export default SigninFormMutation;

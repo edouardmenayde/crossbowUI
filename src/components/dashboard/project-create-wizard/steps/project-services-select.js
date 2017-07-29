@@ -88,8 +88,7 @@ export default class ProjectServicesSelect extends Component {
 		/* eslint-disable react/jsx-no-bind */
 		return <form onSubmit={this.submit}>
 			<div class={serviceStyle.services}>
-				{services.map(service => <div onClick={() => this.onClick(service)}><Service data={service}
-																																										 selected={!!selectedServices.find(s => s === service.id)}/>
+				{services.map(service => <div onClick={() => this.onClick(service)}><Service data={service} selected={!!selectedServices.find(s => s === service.id)} />
 				</div>)}
 			</div>
 			<input type="submit">Submit</input>
