@@ -7,26 +7,26 @@ import {graphql} from 'react-apollo';
 
 @graphql(UNLINK_SERVICE_MUTATION)
 export default class UnlinkButton extends Component {
-	handleClick = () => {
-		const {mutate, data: {links}} = this.props;
+    handleClick = () => {
+        const {mutate, data: {links}} = this.props;
 
-		return mutate({
-			refetchQueries: [{
-				query: SERVICES_FOR_USER,
-			}],
-			variables     : {
-				input: {
-					serviceLink: links[0].id,
-				},
-			},
-		}).catch(error => {
-			console.error(error);
-		});
-	};
+        return mutate({
+            refetchQueries: [{
+                query: SERVICES_FOR_USER,
+            }],
+            variables     : {
+                input: {
+                    serviceLink: links[0].id,
+                },
+            },
+        }).catch(error => {
+            console.error(error);
+        });
+    };
 
-	render() {
-		return <Button name="Unlink">
-			<MdRemove onClick={this.handleClick}/>
-		</Button>;
-	}
+    render() {
+        return <Button name="Unlink">
+            <MdRemove onClick={this.handleClick}/>
+        </Button>;
+    }
 }

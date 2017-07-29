@@ -1,7 +1,7 @@
 mutation linkService($input: UnlinkServiceInput!) {
   unlinkService(input: $input) {
-	serviceLink {
-	  id
-	}
+    serviceLink {
+      id
+    }
   }
 }

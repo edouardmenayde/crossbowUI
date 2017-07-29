@@ -1,26 +1,26 @@
 {
   "schema": {
-	"request": {
-	  "url": "http://localhost:3000/graphql",
-	  "method": "POST",
-	  "postIntrospectionQuery": true,
-	  "options": {
-		"headers": {
-		  "user-agent": "JS GraphQL"
-		}
-	  }
-	}
+    "request": {
+      "url": "http://localhost:3000/graphql",
+      "method": "POST",
+      "postIntrospectionQuery": true,
+      "options": {
+        "headers": {
+          "user-agent": "JS GraphQL"
+        }
+      }
+    }
   },
   "README_endpoints": "A list of GraphQL endpoints that can be queried from '.graphql' files in the IDE",
   "endpoints": [
-	{
-	  "name": "Default",
-	  "url": "http://localhost:3000/graphql",
-	  "options": {
-		"headers": {
-		  "user-agent": "JS GraphQL"
-		}
-	  }
-	}
+    {
+      "name": "Default",
+      "url": "http://localhost:3000/graphql",
+      "options": {
+        "headers": {
+          "user-agent": "JS GraphQL"
+        }
+      }
+    }
   ]
 }

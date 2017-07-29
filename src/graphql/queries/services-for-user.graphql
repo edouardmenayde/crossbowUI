@@ -1,12 +1,12 @@
 query servicesForUser {
   servicesForUser {
-	services {
-	  id,
-	  name,
-	  tag,
-	  links {
-		id
-	  }
-	}
+    services {
+      id,
+      name,
+      tag,
+      links {
+        id
+      }
+    }
   }
 }

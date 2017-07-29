@@ -5,23 +5,23 @@ import style from './style.less';
 import SERVICES_FOR_USER_QUERY from '../../graphql/queries/services-for-user.graphql';
 
 const services = ({data: {loading, error, servicesForUser}}) => {
-	if (loading) {
-		return <p>Loading...</p>;
-	}
+    if (loading) {
+        return <p>Loading...</p>;
+    }
 
-	if (error) {
-		return <p>{error.message}</p>;
-	}
+    if (error) {
+        return <p>{error.message}</p>;
+    }
 
-	let {services} = servicesForUser;
+    let {services} = servicesForUser;
 
-	if (!services) {
-		return;
-	}
+    if (!services) {
+        return;
+    }
 
-	return <div class={style.services}>
-		{services.map(service => <Service data={service}/>)}
-	</div>;
+    return <div class={style.services}>
+        {services.map(service => <Service data={service}/>)}
+    </div>;
 };
 
 export default graphql(SERVICES_FOR_USER_QUERY)(services);

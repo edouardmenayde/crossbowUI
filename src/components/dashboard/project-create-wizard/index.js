@@ -5,7 +5,7 @@ import ProjectServicesSelect from './steps/project-services-select';
 import ProjectTeamCreate from './steps/project-team-create';
 
 export default class ProjectCreateWizard extends Component {
-	render() {
-		return <Wizard steps={[ProjectNameInputStep, ProjectServicesSelect, ProjectTeamCreate]}/>;
-	}
+    render() {
+        return <Wizard steps={[ProjectNameInputStep, ProjectServicesSelect, ProjectTeamCreate]}/>;
+    }
 }
