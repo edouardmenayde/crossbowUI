@@ -1,11 +1,11 @@
 mutation createTeamInvite($input: CreateTeamInviteInput!) {
   createTeamInvite(input: $input) {
-	teamInvite {
-	  id,
-	  createdAt,
-	  updatedAt,
-	  token,
-	  expiresIn
-	}
+    teamInvite {
+      id,
+      createdAt,
+      updatedAt,
+      token,
+      expiresIn
+    }
   }
 }

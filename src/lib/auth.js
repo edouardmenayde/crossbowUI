@@ -2,13 +2,13 @@ const TOKEN        = 'token';
 const localStorage = global.localStorage;
 
 export function saveToken(token) {
-	localStorage.setItem(TOKEN, token);
+    localStorage.setItem(TOKEN, token);
 }
 
 export function removeToken() {
-	localStorage.removeItem(TOKEN);
+    localStorage.removeItem(TOKEN);
 }
 
 export function getToken() {
-	return localStorage.getItem(TOKEN);
+    return localStorage.getItem(TOKEN);
 }

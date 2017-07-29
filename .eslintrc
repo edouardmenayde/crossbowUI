@@ -57,18 +57,18 @@
     "comma-style": 2,
     "comma-dangle": [
       2,
-      "always-multiline" // Permits adding a new line to an object without modifying the last
+      "always-multiline"
+      // Permits adding a new line to an object without modifying the last
     ],
     "indent": [
       2,
-      "tab",
+      4,
       {
         "SwitchCase": 1
       }
     ],
     "no-mixed-spaces-and-tabs": [
-      2,
-      "smart-tabs"
+      2
     ],
     "no-trailing-spaces": [
       2,

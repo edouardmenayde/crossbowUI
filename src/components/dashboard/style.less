@@ -1,42 +1,43 @@
 @import '~style/helpers';
+
 .services {
-  padding-top: 2rem;
-  display: grid;
-  justify-content: center;
-  grid-gap: 1rem;
-  width: 100%;
-  grid-template-columns: 100%;
+    padding-top: 2rem;
+    display: grid;
+    justify-content: center;
+    grid-gap: 1rem;
+    width: 100%;
+    grid-template-columns: 100%;
 
-  @media screen and (min-width: 375px) {
-	grid-template-columns: 50% 50%;
-  }
+    @media screen and (min-width: 375px) {
+        grid-template-columns: 50% 50%;
+    }
 
-  @media screen and (min-width: 768px) {
-	grid-template-columns: 33.3% 33.3% 33.3%;
-  }
+    @media screen and (min-width: 768px) {
+        grid-template-columns: 33.3% 33.3% 33.3%;
+    }
 }
 
 .service {
-  padding: 1rem;
-  background: #fafafa;
-  border-radius: 0.5rem;
-  border: solid 0.1rem #cccccc;
-  cursor: pointer;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 0.5rem;
+    border: solid 0.1rem #cccccc;
+    cursor: pointer;
 }
 
 .selectedService {
-  composes: service;
+    composes: service;
 
-  border: solid 0.1rem #A2A2A2;
+    border: solid 0.1rem #A2A2A2;
 }
 
 .serviceDescription {
-  font-size: 1.8rem;
+    font-size: 1.8rem;
 }
 
 .serviceHeader {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

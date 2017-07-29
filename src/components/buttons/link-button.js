@@ -9,38 +9,38 @@ import {graphql} from 'react-apollo';
 
 @graphql(LINK_SERVICE_MUTATION)
 export default class LinkButton extends Component {
-	handleClick = () => {
-		const {mutate, data: {name, id}} = this.props;
+    handleClick = () => {
+        const {mutate, data: {name, id}} = this.props;
 
-		switch (name) {
-			case 'Trello':
-				return authorizeTrello()
-					.then(token => {
-						return mutate({
-							refetchQueries: [{
-								query: SERVICES_FOR_USER,
-							}],
-							variables     : {
-								input: {
-									service    : id,
-									type       : 'oauth1',
-									accessToken: token,
-									expiresIn  : -1, // Never
-								},
-							},
-						});
-					})
-					.catch(error => {
-						console.error(error);
-					});
-			// case 'Google Drive':
-			// 	return authorizeGoogle();
-		}
-	};
+        switch (name) {
+            case 'Trello':
+                return authorizeTrello()
+                    .then(token => {
+                        return mutate({
+                            refetchQueries: [{
+                                query: SERVICES_FOR_USER,
+                            }],
+                            variables     : {
+                                input: {
+                                    service    : id,
+                                    type       : 'oauth1',
+                                    accessToken: token,
+                                    expiresIn  : -1, // Never
+                                },
+                            },
+                        });
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+            // case 'Google Drive':
+            // 	return authorizeGoogle();
+        }
+    };
 
-	render() {
-		return <Button name="Link">
-			<MdAdd onClick={this.handleClick}/>
-		</Button>;
-	}
+    render() {
+        return <Button name="Link">
+            <MdAdd onClick={this.handleClick}/>
+        </Button>;
+    }
 }

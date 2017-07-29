@@ -1,9 +1,9 @@
 query services {
   services {
-	services {
-	  id,
-	  name,
-	  tag
-	}
+    services {
+      id,
+      name,
+      tag
+    }
   }
 }

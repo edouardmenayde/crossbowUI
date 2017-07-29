@@ -3,17 +3,17 @@ import {removeToken} from "../lib/auth";
 import {route} from 'preact-router';
 
 class Signout {
-	componentWillMount() {
-		removeToken();
+    componentWillMount() {
+        removeToken();
 
-		this.props.client.resetStore();
+        this.props.client.resetStore();
 
-		route('/');
-	}
+        route('/');
+    }
 
-	render() {
-		return null;
-	}
+    render() {
+        return null;
+    }
 }
 
 export default withApollo(Signout);

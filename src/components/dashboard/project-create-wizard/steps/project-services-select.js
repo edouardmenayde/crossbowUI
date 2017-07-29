@@ -11,88 +11,88 @@ import Service from '../../service';
 @graphql(CREATE_PROJECT_MUTATION, {name: 'createProject'})
 @graphql(SERVICES_QUERY)
 export default class ProjectServicesSelect extends Component {
-	constructor(props) {
-		super(props);
+    onClick = service => {
+        const {selectedServices} = this.state;
 
-		this.setState({
-			selectedServices: [],
-		});
-	}
+        const isAlreadySelected = selectedServices.find(s => s === service.id);
 
-	onClick = service => {
-		const {selectedServices} = this.state;
+        if (isAlreadySelected) {
+            return this.setState({
+                selectedServices: [...selectedServices.filter(s => s !== service.id)],
+            });
+        }
 
-		const isAlreadySelected = selectedServices.find(s => s === service.id);
+        this.setState({
+            selectedServices: [...selectedServices, service.id],
+        });
+    };
+    submit  = event => {
+        event.preventDefault();
 
-		if (isAlreadySelected) {
-			return this.setState({
-				selectedServices: [...selectedServices.filter(s => s !== service.id)],
-			});
-		}
+        const {selectedServices}                             = this.state;
+        const {createProject, createTeamInvite, wizardState} = this.props;
 
-		this.setState({
-			selectedServices: [...selectedServices, service.id],
-		});
-	};
+        createProject({
+            variables: {
+                input: {
+                    name    : wizardState.project,
+                    services: selectedServices,
+                },
+            },
+        })
+            .then(({data: {createProject}}) => {
+                return createTeamInvite({
+                    variables: {
+                        input: {
+                            team: createProject.team.id,
+                        },
+                    },
+                })
+                    .then(({data: {createTeamInvite: {teamInvite}}}) => {
+                        this.props.advance({
+                            teamInvite,
+                            ...createProject,
+                        });
+                    });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
 
-	submit = event => {
-		event.preventDefault();
+    constructor(props) {
+        super(props);
 
-		const {selectedServices}                             = this.state;
-		const {createProject, createTeamInvite, wizardState} = this.props;
+        this.setState({
+            selectedServices: [],
+        });
+    }
 
-		createProject({
-			variables: {
-				input: {
-					name    : wizardState.project,
-					services: selectedServices,
-				},
-			},
-		})
-			.then(({data: {createProject}}) => {
-				return createTeamInvite({
-					variables: {
-						input: {
-							team: createProject.team.id,
-						},
-					},
-				})
-					.then(({data: {createTeamInvite: {teamInvite}}}) => {
-						this.props.advance({
-							teamInvite,
-							...createProject,
-						});
-					});
-			})
-			.catch(error => {
-				console.error(error);
-			});
-	};
+    render({data: {loading, error, services}}, {selectedServices}) {
+        if (loading) {
+            return <div class={style.container}><p>Loading...</p></div>;
+        }
 
-	render({data: {loading, error, services}}, {selectedServices}) {
-		if (loading) {
-			return <div class={style.container}><p>Loading...</p></div>;
-		}
+        if (error) {
+            return <div class={style.container}><p>{error.message}</p></div>;
+        }
 
-		if (error) {
-			return <div class={style.container}><p>{error.message}</p></div>;
-		}
+        services = services.services;
 
-		services = services.services;
-
-		if (!services) {
-			return;
-		}
+        if (!services) {
+            return;
+        }
 
 
-		/* eslint-disable react/jsx-no-bind */
-		return <form onSubmit={this.submit}>
-			<div class={serviceStyle.services}>
-				{services.map(service => <div onClick={() => this.onClick(service)}><Service data={service} selected={!!selectedServices.find(s => s === service.id)} />
-				</div>)}
-			</div>
-			<input type="submit">Submit</input>
-		</form>;
-		/* eslint-enable react/jsx-no-bind */
-	}
+        /* eslint-disable react/jsx-no-bind */
+        return <form onSubmit={this.submit}>
+            <div class={serviceStyle.services}>
+                {services.map(service => <div onClick={() => this.onClick(service)}><Service data={service}
+                                                                                             selected={!!selectedServices.find(s => s === service.id)}/>
+                </div>)}
+            </div>
+            <input type="submit">Submit</input>
+        </form>;
+        /* eslint-enable react/jsx-no-bind */
+    }
 }
