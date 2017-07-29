@@ -1,0 +1,31 @@
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.counter {
+  composes: no-select;
+  display: inline-block;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  color: #FFFFFF;
+  background-color: #de1f56;
+  border-radius: 15px;
+  text-align: center;
+  cursor: default;
+  opacity: 1;
+  min-width: 2.24rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease-out;
+  &:hover {
+	opacity: 0.9;
+	background-color: darken(#de1f56, 2%);
+  }
+  &:active {
+	opacity: 0.9;
+	background-color: darken(#de1f56, 10%);
+  }
+}
