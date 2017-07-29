@@ -1,7 +1,6 @@
 import {h} from 'preact';
 import Team from '../team';
 import Badge from '../badge';
-import style from './style.less';
 
 export default () => {
     return (
