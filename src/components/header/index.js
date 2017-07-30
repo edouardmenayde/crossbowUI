@@ -8,17 +8,17 @@ import style from './style.less';
 export default class Header extends Component {
     renderLoggedIn() {
         return (
-            <div id="accountPanel">
-                <div className="container">
-                    <div className="branding">Crossbow</div>
-                    <div className="divider"/>
-                    <div className="profilePicture"/>
-                    <div className="profileName">John Doe</div>
-                    <div className="divider"/>
-                    <div className="management">
-                        <div className="account">🙄 Account</div>
-                        <div className="preferences">⚙️ Preferences</div>
-                        <div className="logout">🚪 Logout</div>
+            <div class={style.accountPanel}>
+                <div class={style.container}>
+                    <div class={style.branding}><Link href="/">Crossbow</Link></div>
+                    <div class={style.divider}/>
+                    <div class={style.profilePicture}/>
+                    <div class={style.profileName}>John Doe</div>
+                    <div class={style.divider}/>
+                    <div class={style.management}>
+                        <div class={style.account}>🙄 Account</div>
+                        <div class={style.preferences}>⚙️ Preferences</div>
+                        <div class={style.logout}>🚪 Logout</div>
                     </div>
                 </div>
             </div>
@@ -39,12 +39,11 @@ export default class Header extends Component {
 
     render({data: {loading, error, me}}) {
         if (loading) {
-            return this.renderLoggedOut();
+            return;
         }
 
         if (error) {
             console.error(error);
-
             return this.renderLoggedOut();
         }
 
